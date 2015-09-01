@@ -46,11 +46,12 @@ package unix
 #include <sys/user.h>
 #include <sys/utsname.h>
 #include <sys/wait.h>
+#include <sys/ioctl.h>
 #include <linux/filter.h>
 #include <linux/netlink.h>
 #include <linux/rtnetlink.h>
 #include <linux/icmpv6.h>
-#include <termios.h>
+#include <asm/termbits.h>
 #include <time.h>
 #include <unistd.h>
 #include <ustat.h>
@@ -106,6 +107,22 @@ struct my_epoll_event {
 	int32_t fd;
 	int32_t pad;
 };
+
+#ifndef TCSETS2
+
+// Platform has no termios2. Define a dummy one.
+#define TCSETS2 TCSETS
+#define TCSETSW2 TCSETSW
+#define TCSETSF2 TCSETSF
+#define TCGETS2 TCGETS
+typedef termios termios2_t;
+
+#else
+
+// Platform has termios2
+typedef struct termios2 termios2_t;
+
+#endif
 
 */
 import "C"
@@ -397,3 +414,5 @@ const (
 // Terminal handling
 
 type Termios C.struct_termios
+
+type Termios2 C.termios2_t
