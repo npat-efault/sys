@@ -1,7 +1,6 @@
+// +build amd64,linux
 // Created by cgo -godefs - DO NOT EDIT
 // cgo -godefs types_linux.go
-
-// +build amd64,linux
 
 package unix
 
@@ -99,21 +98,21 @@ type Rlimit struct {
 type _Gid_t uint32
 
 type Stat_t struct {
-	Dev       uint64
-	Ino       uint64
-	Nlink     uint64
-	Mode      uint32
-	Uid       uint32
-	Gid       uint32
-	X__pad0   int32
-	Rdev      uint64
-	Size      int64
-	Blksize   int64
-	Blocks    int64
-	Atim      Timespec
-	Mtim      Timespec
-	Ctim      Timespec
-	X__unused [3]int64
+	Dev               uint64
+	Ino               uint64
+	Nlink             uint64
+	Mode              uint32
+	Uid               uint32
+	Gid               uint32
+	X__pad0           int32
+	Rdev              uint64
+	Size              int64
+	Blksize           int64
+	Blocks            int64
+	Atim              Timespec
+	Mtim              Timespec
+	Ctim              Timespec
+	X__glibc_reserved [3]int64
 }
 
 type Statfs_t struct {
@@ -153,6 +152,15 @@ type Flock_t struct {
 	Pid       int32
 	Pad_cgo_1 [4]byte
 }
+
+const (
+	FADV_NORMAL     = 0x0
+	FADV_RANDOM     = 0x1
+	FADV_SEQUENTIAL = 0x2
+	FADV_WILLNEED   = 0x3
+	FADV_DONTNEED   = 0x4
+	FADV_NOREUSE    = 0x5
+)
 
 type RawSockaddrInet4 struct {
 	Family uint16
@@ -242,10 +250,9 @@ type Msghdr struct {
 }
 
 type Cmsghdr struct {
-	Len          uint64
-	Level        int32
-	Type         int32
-	X__cmsg_data [0]uint8
+	Len   uint64
+	Level int32
+	Type  int32
 }
 
 type Inet4Pktinfo struct {
@@ -359,7 +366,7 @@ const (
 	IFLA_LINKINFO       = 0x12
 	IFLA_NET_NS_PID     = 0x13
 	IFLA_IFALIAS        = 0x14
-	IFLA_MAX            = 0x1d
+	IFLA_MAX            = 0x22
 	RT_SCOPE_UNIVERSE   = 0x0
 	RT_SCOPE_SITE       = 0xc8
 	RT_SCOPE_LINK       = 0xfd
@@ -509,7 +516,6 @@ type InotifyEvent struct {
 	Mask   uint32
 	Cookie uint32
 	Len    uint32
-	Name   [0]int8
 }
 
 const SizeofInotifyEvent = 0x10
@@ -593,18 +599,26 @@ type EpollEvent struct {
 
 const (
 	AT_FDCWD            = -0x64
-	AT_SYMLINK_NOFOLLOW = 0x100
 	AT_REMOVEDIR        = 0x200
+	AT_SYMLINK_NOFOLLOW = 0x100
 )
 
 type Termios struct {
-	Iflag     uint32
-	Oflag     uint32
-	Cflag     uint32
-	Lflag     uint32
-	Line      uint8
-	Cc        [32]uint8
-	Pad_cgo_0 [3]byte
-	Ispeed    uint32
-	Ospeed    uint32
+	Iflag uint32
+	Oflag uint32
+	Cflag uint32
+	Lflag uint32
+	Line  uint8
+	Cc    [19]uint8
+}
+
+type Termios2 struct {
+	Iflag  uint32
+	Oflag  uint32
+	Cflag  uint32
+	Lflag  uint32
+	Line   uint8
+	Cc     [19]uint8
+	Ispeed uint32
+	Ospeed uint32
 }

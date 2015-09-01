@@ -34,7 +34,7 @@ const (
 	AF_KEY                           = 0xf
 	AF_LLC                           = 0x1a
 	AF_LOCAL                         = 0x1
-	AF_MAX                           = 0x28
+	AF_MAX                           = 0x29
 	AF_NETBEUI                       = 0xd
 	AF_NETLINK                       = 0x10
 	AF_NETROM                        = 0x6
@@ -51,6 +51,7 @@ const (
 	AF_TIPC                          = 0x1e
 	AF_UNIX                          = 0x1
 	AF_UNSPEC                        = 0x0
+	AF_VSOCK                         = 0x28
 	AF_WANPIPE                       = 0x19
 	AF_X25                           = 0x9
 	ARPHRD_ADAPT                     = 0x108
@@ -87,8 +88,10 @@ const (
 	ARPHRD_IEEE80211_PRISM           = 0x322
 	ARPHRD_IEEE80211_RADIOTAP        = 0x323
 	ARPHRD_IEEE802154                = 0x324
+	ARPHRD_IEEE802154_MONITOR        = 0x325
 	ARPHRD_IEEE802_TR                = 0x320
 	ARPHRD_INFINIBAND                = 0x20
+	ARPHRD_IP6GRE                    = 0x337
 	ARPHRD_IPDDP                     = 0x309
 	ARPHRD_IPGRE                     = 0x30a
 	ARPHRD_IRDA                      = 0x30f
@@ -96,6 +99,7 @@ const (
 	ARPHRD_LOCALTLK                  = 0x305
 	ARPHRD_LOOPBACK                  = 0x304
 	ARPHRD_METRICOM                  = 0x17
+	ARPHRD_NETLINK                   = 0x338
 	ARPHRD_NETROM                    = 0x0
 	ARPHRD_NONE                      = 0xfffe
 	ARPHRD_PHONET                    = 0x334
@@ -145,6 +149,7 @@ const (
 	B75                              = 0x2
 	B921600                          = 0x1007
 	B9600                            = 0xd
+	BOTHER                           = 0x1000
 	BPF_A                            = 0x10
 	BPF_ABS                          = 0x20
 	BPF_ADD                          = 0x0
@@ -172,6 +177,7 @@ const (
 	BPF_MEMWORDS                     = 0x10
 	BPF_MINOR_VERSION                = 0x1
 	BPF_MISC                         = 0x7
+	BPF_MOD                          = 0x90
 	BPF_MSH                          = 0xa0
 	BPF_MUL                          = 0x20
 	BPF_NEG                          = 0x80
@@ -185,7 +191,10 @@ const (
 	BPF_TXA                          = 0x80
 	BPF_W                            = 0x0
 	BPF_X                            = 0x8
+	BPF_XOR                          = 0xa0
 	BRKINT                           = 0x2
+	CBAUD                            = 0x100f
+	CBAUDEX                          = 0x1000
 	CFLUSH                           = 0xf
 	CLOCAL                           = 0x800
 	CLOCK_BOOTTIME                   = 0x7
@@ -225,7 +234,9 @@ const (
 	CLONE_UNTRACED                   = 0x800000
 	CLONE_VFORK                      = 0x4000
 	CLONE_VM                         = 0x100
+	CMSPAR                           = 0x40000000
 	CREAD                            = 0x80
+	CRTSCTS                          = 0x80000000
 	CS5                              = 0x0
 	CS6                              = 0x10
 	CS7                              = 0x20
@@ -270,19 +281,21 @@ const (
 	EPOLLRDBAND                      = 0x80
 	EPOLLRDHUP                       = 0x2000
 	EPOLLRDNORM                      = 0x40
+	EPOLLWAKEUP                      = 0x20000000
 	EPOLLWRBAND                      = 0x200
 	EPOLLWRNORM                      = 0x100
 	EPOLL_CLOEXEC                    = 0x80000
 	EPOLL_CTL_ADD                    = 0x1
 	EPOLL_CTL_DEL                    = 0x2
 	EPOLL_CTL_MOD                    = 0x3
-	EPOLL_NONBLOCK                   = 0x800
 	ETH_P_1588                       = 0x88f7
 	ETH_P_8021AD                     = 0x88a8
 	ETH_P_8021AH                     = 0x88e7
 	ETH_P_8021Q                      = 0x8100
 	ETH_P_802_2                      = 0x4
 	ETH_P_802_3                      = 0x1
+	ETH_P_802_3_MIN                  = 0x600
+	ETH_P_802_EX1                    = 0x88b5
 	ETH_P_AARP                       = 0x80f3
 	ETH_P_AF_IUCV                    = 0xfbfb
 	ETH_P_ALL                        = 0x3
@@ -293,9 +306,11 @@ const (
 	ETH_P_ATMFATE                    = 0x8884
 	ETH_P_ATMMPOA                    = 0x884c
 	ETH_P_AX25                       = 0x2
+	ETH_P_BATMAN                     = 0x4305
 	ETH_P_BPQ                        = 0x8ff
 	ETH_P_CAIF                       = 0xf7
 	ETH_P_CAN                        = 0xc
+	ETH_P_CANFD                      = 0xd
 	ETH_P_CONTROL                    = 0x16
 	ETH_P_CUST                       = 0x6006
 	ETH_P_DDCMP                      = 0x6
@@ -324,6 +339,7 @@ const (
 	ETH_P_MOBITEX                    = 0x15
 	ETH_P_MPLS_MC                    = 0x8848
 	ETH_P_MPLS_UC                    = 0x8847
+	ETH_P_MVRP                       = 0x88f5
 	ETH_P_PAE                        = 0x888e
 	ETH_P_PAUSE                      = 0x8808
 	ETH_P_PHONET                     = 0xf5
@@ -331,6 +347,7 @@ const (
 	ETH_P_PPP_DISC                   = 0x8863
 	ETH_P_PPP_MP                     = 0x8
 	ETH_P_PPP_SES                    = 0x8864
+	ETH_P_PRP                        = 0x88fb
 	ETH_P_PUP                        = 0x200
 	ETH_P_PUPAT                      = 0x201
 	ETH_P_QINQ1                      = 0x9100
@@ -388,6 +405,7 @@ const (
 	F_UNLCK                          = 0x2
 	F_WRLCK                          = 0x1
 	HUPCL                            = 0x400
+	IBSHIFT                          = 0x10
 	ICANON                           = 0x2
 	ICMPV6_FILTER                    = 0x1
 	ICRNL                            = 0x100
@@ -404,11 +422,13 @@ const (
 	IFA_MAX                          = 0x7
 	IFF_802_1Q_VLAN                  = 0x1
 	IFF_ALLMULTI                     = 0x200
+	IFF_ATTACH_QUEUE                 = 0x200
 	IFF_AUTOMEDIA                    = 0x4000
 	IFF_BONDING                      = 0x20
 	IFF_BRIDGE_PORT                  = 0x4000
 	IFF_BROADCAST                    = 0x2
 	IFF_DEBUG                        = 0x4
+	IFF_DETACH_QUEUE                 = 0x400
 	IFF_DISABLE_NETPOLL              = 0x1000
 	IFF_DONT_BRIDGE                  = 0x800
 	IFF_DORMANT                      = 0x20000
@@ -416,19 +436,24 @@ const (
 	IFF_EBRIDGE                      = 0x2
 	IFF_ECHO                         = 0x40000
 	IFF_ISATAP                       = 0x80
+	IFF_LIVE_ADDR_CHANGE             = 0x100000
 	IFF_LOOPBACK                     = 0x8
 	IFF_LOWER_UP                     = 0x10000
+	IFF_MACVLAN                      = 0x200000
 	IFF_MACVLAN_PORT                 = 0x2000
 	IFF_MASTER                       = 0x400
 	IFF_MASTER_8023AD                = 0x8
 	IFF_MASTER_ALB                   = 0x10
 	IFF_MASTER_ARPMON                = 0x100
 	IFF_MULTICAST                    = 0x1000
+	IFF_MULTI_QUEUE                  = 0x100
 	IFF_NOARP                        = 0x80
+	IFF_NOFILTER                     = 0x1000
 	IFF_NOTRAILERS                   = 0x20
 	IFF_NO_PI                        = 0x1000
 	IFF_ONE_QUEUE                    = 0x2000
 	IFF_OVS_DATAPATH                 = 0x8000
+	IFF_PERSIST                      = 0x800
 	IFF_POINTOPOINT                  = 0x10
 	IFF_PORTSEL                      = 0x2000
 	IFF_PROMISC                      = 0x100
@@ -436,7 +461,9 @@ const (
 	IFF_SLAVE                        = 0x800
 	IFF_SLAVE_INACTIVE               = 0x4
 	IFF_SLAVE_NEEDARP                = 0x40
+	IFF_SUPP_NOFCS                   = 0x80000
 	IFF_TAP                          = 0x2
+	IFF_TEAM_PORT                    = 0x40000
 	IFF_TUN                          = 0x1
 	IFF_TUN_EXCL                     = 0x8000
 	IFF_TX_SKB_SHARING               = 0x10000
@@ -492,6 +519,7 @@ const (
 	IN_Q_OVERFLOW                    = 0x4000
 	IN_UNMOUNT                       = 0x2000
 	IPPROTO_AH                       = 0x33
+	IPPROTO_BEETPH                   = 0x5e
 	IPPROTO_COMP                     = 0x6c
 	IPPROTO_DCCP                     = 0x21
 	IPPROTO_DSTOPTS                  = 0x3c
@@ -508,6 +536,7 @@ const (
 	IPPROTO_IP                       = 0x0
 	IPPROTO_IPIP                     = 0x4
 	IPPROTO_IPV6                     = 0x29
+	IPPROTO_MH                       = 0x87
 	IPPROTO_MTP                      = 0x5c
 	IPPROTO_NONE                     = 0x3b
 	IPPROTO_PIM                      = 0x67
@@ -616,9 +645,11 @@ const (
 	IP_TRANSPARENT                   = 0x13
 	IP_TTL                           = 0x2
 	IP_UNBLOCK_SOURCE                = 0x25
+	IP_UNICAST_IF                    = 0x32
 	IP_XFRM_POLICY                   = 0x11
 	ISIG                             = 0x1
 	ISTRIP                           = 0x20
+	IUCLC                            = 0x200
 	IUTF8                            = 0x4000
 	IXANY                            = 0x800
 	IXOFF                            = 0x1000
@@ -637,7 +668,9 @@ const (
 	LOCK_NB                          = 0x4
 	LOCK_SH                          = 0x1
 	LOCK_UN                          = 0x8
+	MADV_DODUMP                      = 0x11
 	MADV_DOFORK                      = 0xb
+	MADV_DONTDUMP                    = 0x10
 	MADV_DONTFORK                    = 0xa
 	MADV_DONTNEED                    = 0x4
 	MADV_HUGEPAGE                    = 0xe
@@ -659,6 +692,8 @@ const (
 	MAP_FIXED                        = 0x10
 	MAP_GROWSDOWN                    = 0x100
 	MAP_HUGETLB                      = 0x40000
+	MAP_HUGE_MASK                    = 0x3f
+	MAP_HUGE_SHIFT                   = 0x1a
 	MAP_LOCKED                       = 0x2000
 	MAP_NONBLOCK                     = 0x10000
 	MAP_NORESERVE                    = 0x4000
@@ -745,8 +780,11 @@ const (
 	NETLINK_PKTINFO                  = 0x3
 	NETLINK_RDMA                     = 0x14
 	NETLINK_ROUTE                    = 0x0
+	NETLINK_RX_RING                  = 0x6
 	NETLINK_SCSITRANSPORT            = 0x12
 	NETLINK_SELINUX                  = 0x7
+	NETLINK_SOCK_DIAG                = 0x4
+	NETLINK_TX_RING                  = 0x7
 	NETLINK_UNUSED                   = 0x1
 	NETLINK_USERSOCK                 = 0x2
 	NETLINK_XFRM                     = 0x6
@@ -803,6 +841,7 @@ const (
 	O_RDWR                           = 0x2
 	O_RSYNC                          = 0x101000
 	O_SYNC                           = 0x101000
+	O_TMPFILE                        = 0x410000
 	O_TRUNC                          = 0x200
 	O_WRONLY                         = 0x1
 	PACKET_ADD_MEMBERSHIP            = 0x1
@@ -813,8 +852,11 @@ const (
 	PACKET_FANOUT                    = 0x12
 	PACKET_FANOUT_CPU                = 0x2
 	PACKET_FANOUT_FLAG_DEFRAG        = 0x8000
+	PACKET_FANOUT_FLAG_ROLLOVER      = 0x1000
 	PACKET_FANOUT_HASH               = 0x0
 	PACKET_FANOUT_LB                 = 0x1
+	PACKET_FANOUT_RND                = 0x4
+	PACKET_FANOUT_ROLLOVER           = 0x3
 	PACKET_FASTROUTE                 = 0x6
 	PACKET_HDRLEN                    = 0xb
 	PACKET_HOST                      = 0x0
@@ -833,6 +875,7 @@ const (
 	PACKET_RX_RING                   = 0x5
 	PACKET_STATISTICS                = 0x6
 	PACKET_TIMESTAMP                 = 0x11
+	PACKET_TX_HAS_OFF                = 0x13
 	PACKET_TX_RING                   = 0xd
 	PACKET_TX_TIMESTAMP              = 0x10
 	PACKET_VERSION                   = 0xa
@@ -875,6 +918,7 @@ const (
 	PR_FP_EXC_RES                    = 0x80000
 	PR_FP_EXC_SW_ENABLE              = 0x80
 	PR_FP_EXC_UND                    = 0x40000
+	PR_GET_CHILD_SUBREAPER           = 0x25
 	PR_GET_DUMPABLE                  = 0x3
 	PR_GET_ENDIAN                    = 0x13
 	PR_GET_FPEMU                     = 0x9
@@ -885,6 +929,7 @@ const (
 	PR_GET_PDEATHSIG                 = 0x2
 	PR_GET_SECCOMP                   = 0x15
 	PR_GET_SECUREBITS                = 0x1b
+	PR_GET_TID_ADDRESS               = 0x28
 	PR_GET_TIMERSLACK                = 0x1e
 	PR_GET_TIMING                    = 0xd
 	PR_GET_TSC                       = 0x19
@@ -896,15 +941,22 @@ const (
 	PR_MCE_KILL_GET                  = 0x22
 	PR_MCE_KILL_LATE                 = 0x0
 	PR_MCE_KILL_SET                  = 0x1
+	PR_SET_CHILD_SUBREAPER           = 0x24
 	PR_SET_DUMPABLE                  = 0x4
 	PR_SET_ENDIAN                    = 0x14
 	PR_SET_FPEMU                     = 0xa
 	PR_SET_FPEXC                     = 0xc
 	PR_SET_KEEPCAPS                  = 0x8
 	PR_SET_MM                        = 0x23
+	PR_SET_MM_ARG_END                = 0x9
+	PR_SET_MM_ARG_START              = 0x8
+	PR_SET_MM_AUXV                   = 0xc
 	PR_SET_MM_BRK                    = 0x7
 	PR_SET_MM_END_CODE               = 0x2
 	PR_SET_MM_END_DATA               = 0x4
+	PR_SET_MM_ENV_END                = 0xb
+	PR_SET_MM_ENV_START              = 0xa
+	PR_SET_MM_EXE_FILE               = 0xd
 	PR_SET_MM_START_BRK              = 0x6
 	PR_SET_MM_START_CODE             = 0x1
 	PR_SET_MM_START_DATA             = 0x3
@@ -946,12 +998,14 @@ const (
 	PTRACE_GETREGS                   = 0xc
 	PTRACE_GETREGSET                 = 0x4204
 	PTRACE_GETSIGINFO                = 0x4202
+	PTRACE_GETSIGMASK                = 0x420a
 	PTRACE_GET_THREAD_AREA           = 0x19
 	PTRACE_INTERRUPT                 = 0x4207
 	PTRACE_KILL                      = 0x8
 	PTRACE_LISTEN                    = 0x4208
 	PTRACE_OLDSETOPTIONS             = 0x15
-	PTRACE_O_MASK                    = 0xff
+	PTRACE_O_EXITKILL                = 0x100000
+	PTRACE_O_MASK                    = 0x1000ff
 	PTRACE_O_TRACECLONE              = 0x8
 	PTRACE_O_TRACEEXEC               = 0x10
 	PTRACE_O_TRACEEXIT               = 0x40
@@ -961,19 +1015,21 @@ const (
 	PTRACE_O_TRACEVFORK              = 0x4
 	PTRACE_O_TRACEVFORKDONE          = 0x20
 	PTRACE_PEEKDATA                  = 0x2
+	PTRACE_PEEKSIGINFO               = 0x4209
+	PTRACE_PEEKSIGINFO_SHARED        = 0x1
 	PTRACE_PEEKTEXT                  = 0x1
 	PTRACE_PEEKUSR                   = 0x3
 	PTRACE_POKEDATA                  = 0x5
 	PTRACE_POKETEXT                  = 0x4
 	PTRACE_POKEUSR                   = 0x6
 	PTRACE_SEIZE                     = 0x4206
-	PTRACE_SEIZE_DEVEL               = 0x80000000
 	PTRACE_SETFPREGS                 = 0xf
 	PTRACE_SETFPXREGS                = 0x13
 	PTRACE_SETOPTIONS                = 0x4200
 	PTRACE_SETREGS                   = 0xd
 	PTRACE_SETREGSET                 = 0x4205
 	PTRACE_SETSIGINFO                = 0x4203
+	PTRACE_SETSIGMASK                = 0x420b
 	PTRACE_SET_THREAD_AREA           = 0x1a
 	PTRACE_SINGLEBLOCK               = 0x21
 	PTRACE_SINGLESTEP                = 0x9
@@ -1000,8 +1056,9 @@ const (
 	RTAX_INITCWND                    = 0xb
 	RTAX_INITRWND                    = 0xe
 	RTAX_LOCK                        = 0x1
-	RTAX_MAX                         = 0xe
+	RTAX_MAX                         = 0xf
 	RTAX_MTU                         = 0x2
+	RTAX_QUICKACK                    = 0xf
 	RTAX_REORDERING                  = 0x9
 	RTAX_RTO_MIN                     = 0xd
 	RTAX_RTT                         = 0x4
@@ -1010,7 +1067,7 @@ const (
 	RTAX_UNSPEC                      = 0x0
 	RTAX_WINDOW                      = 0x3
 	RTA_ALIGNTO                      = 0x4
-	RTA_MAX                          = 0x10
+	RTA_MAX                          = 0x11
 	RTCF_DIRECTSRC                   = 0x4000000
 	RTCF_DOREDIRECT                  = 0x1000000
 	RTCF_LOG                         = 0x2000000
@@ -1052,6 +1109,7 @@ const (
 	RTM_DELADDR                      = 0x15
 	RTM_DELADDRLABEL                 = 0x49
 	RTM_DELLINK                      = 0x11
+	RTM_DELMDB                       = 0x55
 	RTM_DELNEIGH                     = 0x1d
 	RTM_DELQDISC                     = 0x25
 	RTM_DELROUTE                     = 0x19
@@ -1068,30 +1126,34 @@ const (
 	RTM_GETANYCAST                   = 0x3e
 	RTM_GETDCB                       = 0x4e
 	RTM_GETLINK                      = 0x12
+	RTM_GETMDB                       = 0x56
 	RTM_GETMULTICAST                 = 0x3a
 	RTM_GETNEIGH                     = 0x1e
 	RTM_GETNEIGHTBL                  = 0x42
+	RTM_GETNETCONF                   = 0x52
 	RTM_GETQDISC                     = 0x26
 	RTM_GETROUTE                     = 0x1a
 	RTM_GETRULE                      = 0x22
 	RTM_GETTCLASS                    = 0x2a
 	RTM_GETTFILTER                   = 0x2e
-	RTM_MAX                          = 0x4f
+	RTM_MAX                          = 0x57
 	RTM_NEWACTION                    = 0x30
 	RTM_NEWADDR                      = 0x14
 	RTM_NEWADDRLABEL                 = 0x48
 	RTM_NEWLINK                      = 0x10
+	RTM_NEWMDB                       = 0x54
 	RTM_NEWNDUSEROPT                 = 0x44
 	RTM_NEWNEIGH                     = 0x1c
 	RTM_NEWNEIGHTBL                  = 0x40
+	RTM_NEWNETCONF                   = 0x50
 	RTM_NEWPREFIX                    = 0x34
 	RTM_NEWQDISC                     = 0x24
 	RTM_NEWROUTE                     = 0x18
 	RTM_NEWRULE                      = 0x20
 	RTM_NEWTCLASS                    = 0x28
 	RTM_NEWTFILTER                   = 0x2c
-	RTM_NR_FAMILIES                  = 0x10
-	RTM_NR_MSGTYPES                  = 0x40
+	RTM_NR_FAMILIES                  = 0x12
+	RTM_NR_MSGTYPES                  = 0x48
 	RTM_SETDCB                       = 0x4f
 	RTM_SETLINK                      = 0x13
 	RTM_SETNEIGHTBL                  = 0x43
@@ -1106,6 +1168,7 @@ const (
 	RTPROT_DNROUTED                  = 0xd
 	RTPROT_GATED                     = 0x8
 	RTPROT_KERNEL                    = 0x2
+	RTPROT_MROUTED                   = 0x11
 	RTPROT_MRT                       = 0xa
 	RTPROT_NTK                       = 0xf
 	RTPROT_RA                        = 0x9
@@ -1127,6 +1190,7 @@ const (
 	SCM_TIMESTAMP                    = 0x1d
 	SCM_TIMESTAMPING                 = 0x25
 	SCM_TIMESTAMPNS                  = 0x23
+	SCM_WIFI_STATUS                  = 0x29
 	SHUT_RD                          = 0x0
 	SHUT_RDWR                        = 0x2
 	SHUT_WR                          = 0x1
@@ -1215,18 +1279,24 @@ const (
 	SO_BINDTODEVICE                  = 0x19
 	SO_BROADCAST                     = 0x6
 	SO_BSDCOMPAT                     = 0xe
+	SO_BUSY_POLL                     = 0x2e
 	SO_DEBUG                         = 0x1
 	SO_DETACH_FILTER                 = 0x1b
 	SO_DOMAIN                        = 0x27
 	SO_DONTROUTE                     = 0x5
 	SO_ERROR                         = 0x4
+	SO_GET_FILTER                    = 0x1a
 	SO_KEEPALIVE                     = 0x9
 	SO_LINGER                        = 0xd
+	SO_LOCK_FILTER                   = 0x2c
 	SO_MARK                          = 0x24
+	SO_MAX_PACING_RATE               = 0x2f
+	SO_NOFCS                         = 0x2b
 	SO_NO_CHECK                      = 0xb
 	SO_OOBINLINE                     = 0xa
 	SO_PASSCRED                      = 0x10
 	SO_PASSSEC                       = 0x22
+	SO_PEEK_OFF                      = 0x2a
 	SO_PEERCRED                      = 0x11
 	SO_PEERNAME                      = 0x1c
 	SO_PEERSEC                       = 0x1f
@@ -1237,10 +1307,12 @@ const (
 	SO_RCVLOWAT                      = 0x12
 	SO_RCVTIMEO                      = 0x14
 	SO_REUSEADDR                     = 0x2
+	SO_REUSEPORT                     = 0xf
 	SO_RXQ_OVFL                      = 0x28
 	SO_SECURITY_AUTHENTICATION       = 0x16
 	SO_SECURITY_ENCRYPTION_NETWORK   = 0x18
 	SO_SECURITY_ENCRYPTION_TRANSPORT = 0x17
+	SO_SELECT_ERR_QUEUE              = 0x2d
 	SO_SNDBUF                        = 0x7
 	SO_SNDBUFFORCE                   = 0x20
 	SO_SNDLOWAT                      = 0x13
@@ -1249,6 +1321,7 @@ const (
 	SO_TIMESTAMPING                  = 0x25
 	SO_TIMESTAMPNS                   = 0x23
 	SO_TYPE                          = 0x3
+	SO_WIFI_STATUS                   = 0x29
 	S_BLKSIZE                        = 0x200
 	S_IEXEC                          = 0x40
 	S_IFBLK                          = 0x6000
@@ -1277,12 +1350,25 @@ const (
 	S_IXOTH                          = 0x1
 	S_IXUSR                          = 0x40
 	TCFLSH                           = 0x540b
+	TCGETS                           = 0x5401
+	TCGETS2                          = 0x802c542a
 	TCIFLUSH                         = 0x0
+	TCIOFF                           = 0x2
 	TCIOFLUSH                        = 0x2
+	TCION                            = 0x3
 	TCOFLUSH                         = 0x1
+	TCOOFF                           = 0x0
+	TCOON                            = 0x1
 	TCP_CONGESTION                   = 0xd
+	TCP_COOKIE_IN_ALWAYS             = 0x1
+	TCP_COOKIE_MAX                   = 0x10
+	TCP_COOKIE_MIN                   = 0x8
+	TCP_COOKIE_OUT_NEVER             = 0x2
+	TCP_COOKIE_PAIR_SIZE             = 0x20
+	TCP_COOKIE_TRANSACTIONS          = 0xf
 	TCP_CORK                         = 0x3
 	TCP_DEFER_ACCEPT                 = 0x9
+	TCP_FASTOPEN                     = 0x17
 	TCP_INFO                         = 0xb
 	TCP_KEEPCNT                      = 0x6
 	TCP_KEEPIDLE                     = 0x4
@@ -1294,19 +1380,43 @@ const (
 	TCP_MD5SIG                       = 0xe
 	TCP_MD5SIG_MAXKEYLEN             = 0x50
 	TCP_MSS                          = 0x200
+	TCP_MSS_DEFAULT                  = 0x218
+	TCP_MSS_DESIRED                  = 0x4c4
 	TCP_NODELAY                      = 0x1
+	TCP_QUEUE_SEQ                    = 0x15
 	TCP_QUICKACK                     = 0xc
+	TCP_REPAIR                       = 0x13
+	TCP_REPAIR_OPTIONS               = 0x16
+	TCP_REPAIR_QUEUE                 = 0x14
 	TCP_SYNCNT                       = 0x7
+	TCP_S_DATA_IN                    = 0x4
+	TCP_S_DATA_OUT                   = 0x8
+	TCP_THIN_DUPACK                  = 0x11
+	TCP_THIN_LINEAR_TIMEOUTS         = 0x10
+	TCP_TIMESTAMP                    = 0x18
+	TCP_USER_TIMEOUT                 = 0x12
 	TCP_WINDOW_CLAMP                 = 0xa
 	TCSAFLUSH                        = 0x2
+	TCSBRK                           = 0x5409
+	TCSBRKP                          = 0x5425
+	TCSETS                           = 0x5402
+	TCSETS2                          = 0x402c542b
+	TCSETSF                          = 0x5404
+	TCSETSF2                         = 0x402c542d
+	TCSETSW                          = 0x5403
+	TCSETSW2                         = 0x402c542c
+	TCXONC                           = 0x540a
 	TIOCCBRK                         = 0x5428
 	TIOCCONS                         = 0x541d
 	TIOCEXCL                         = 0x540c
 	TIOCGDEV                         = 0x80045432
 	TIOCGETD                         = 0x5424
+	TIOCGEXCL                        = 0x80045440
 	TIOCGICOUNT                      = 0x545d
 	TIOCGLCKTRMIOS                   = 0x5456
 	TIOCGPGRP                        = 0x540f
+	TIOCGPKT                         = 0x80045438
+	TIOCGPTLCK                       = 0x80045439
 	TIOCGPTN                         = 0x80045430
 	TIOCGRS485                       = 0x542e
 	TIOCGSERIAL                      = 0x541e
@@ -1368,17 +1478,20 @@ const (
 	TUNATTACHFILTER                  = 0x401054d5
 	TUNDETACHFILTER                  = 0x401054d6
 	TUNGETFEATURES                   = 0x800454cf
+	TUNGETFILTER                     = 0x801054db
 	TUNGETIFF                        = 0x800454d2
 	TUNGETSNDBUF                     = 0x800454d3
 	TUNGETVNETHDRSZ                  = 0x800454d7
 	TUNSETDEBUG                      = 0x400454c9
 	TUNSETGROUP                      = 0x400454ce
 	TUNSETIFF                        = 0x400454ca
+	TUNSETIFINDEX                    = 0x400454da
 	TUNSETLINK                       = 0x400454cd
 	TUNSETNOCSUM                     = 0x400454c8
 	TUNSETOFFLOAD                    = 0x400454d0
 	TUNSETOWNER                      = 0x400454cc
 	TUNSETPERSIST                    = 0x400454cb
+	TUNSETQUEUE                      = 0x400454d9
 	TUNSETSNDBUF                     = 0x400454d4
 	TUNSETTXFILTER                   = 0x400454d1
 	TUNSETVNETHDRSZ                  = 0x400454d8
@@ -1706,7 +1819,7 @@ var errors = [...]string{
 	113: "no route to host",
 	114: "operation already in progress",
 	115: "operation now in progress",
-	116: "stale NFS file handle",
+	116: "stale file handle",
 	117: "structure needs cleaning",
 	118: "not a XENIX named type file",
 	119: "no XENIX semaphores available",
@@ -1723,7 +1836,7 @@ var errors = [...]string{
 	130: "owner died",
 	131: "state not recoverable",
 	132: "operation not possible due to RF-kill",
-	133: "unknown error 133",
+	133: "memory page has hardware error",
 }
 
 // Signal table
