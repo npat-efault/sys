@@ -270,14 +270,9 @@ ccflags="$@"
 		$2 !~ /^EXPR_/ &&
 		$2 ~ /^E[A-Z0-9_]+$/ ||
 		$2 ~ /^B[0-9_]+$/ ||
-		$2 ~ /^BOTHER$/ ||
-		$2 ~ /^CBAUD(EX)?$/ ||
-		$2 ~ /^IBSHIFT$/ ||
-		$2 ~ /^TCGETS2?$/ ||
-		$2 ~ /^TCSETS[FW]?2?$/ ||
-		$2 ~ /^TCSBRKP?$/ ||
-		$2 ~ /^TCXONC$/ ||
-		$2 ~ /^TC[IO](ON|OFF)$/ ||
+		$2 == "BOTHER" ||
+		$2 ~ /^CI?BAUD(EX)?$/ ||
+		$2 == "IBSHIFT" ||
 		$2 ~ /^V[A-Z0-9]+$/ ||
 		$2 ~ /^CS[A-Z0-9]/ ||
 		$2 ~ /^I(SIG|CANON|CRNL|UCLC|EXTEN|MAXBEL|STRIP|UTF8)$/ ||
@@ -290,9 +285,20 @@ ccflags="$@"
 		$2 == "HUPCL" ||
 		$2 == "PENDIN" ||
 		$2 == "TOSTOP" ||
+		$2 == "XCASE" ||
+		$2 == "ALTWERASE" ||
+		$2 == "NOKERNINFO" ||
 		$2 ~ /^PAR/ ||
 		$2 ~ /^SIG[^_]/ ||
-		$2 ~ /^O[CNPFP][A-Z]+[^_][A-Z]+$/ ||
+		$2 ~ /^O[CNPFPL][A-Z]+[^_][A-Z]+$/ ||
+		$2 ~ /^(NL|CR|TAB|BS|VT|FF)DLY$/ ||
+		$2 ~ /^(NL|CR|TAB|BS|VT|FF)[0-9]$/ ||
+		$2 ~ /^O?XTABS$/ ||
+		$2 ~ /^TCGETS2?$/ ||
+		$2 ~ /^TCSETS[FW]?2?$/ ||
+		$2 ~ /^TCSBRKP?$/ ||
+		$2 == "TCXONC" ||
+		$2 ~ /^TC[IO](ON|OFF)$/ ||
 		$2 ~ /^IN_/ ||
 		$2 ~ /^LOCK_(SH|EX|NB|UN)$/ ||
 		$2 ~ /^(AF|SOCK|SO|SOL|IPPROTO|IP|IPV6|ICMP6|TCP|EVFILT|NOTE|EV|SHUT|PROT|MAP|PACKET|MSG|SCM|MCL|DT|MADV|PR)_/ ||

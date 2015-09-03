@@ -109,19 +109,16 @@ struct my_epoll_event {
 };
 
 #ifndef TCSETS2
-
-// Platform has no termios2. Define a dummy one.
+// Architecture has no termios2.
+// Define termios2 to be the same as termios.
 #define TCSETS2 TCSETS
 #define TCSETSW2 TCSETSW
 #define TCSETSF2 TCSETSF
 #define TCGETS2 TCGETS
-typedef termios termios2_t;
-
+typedef struct termios termios2_t;
 #else
-
-// Platform has termios2
+// Architecture has termios2
 typedef struct termios2 termios2_t;
-
 #endif
 
 */
