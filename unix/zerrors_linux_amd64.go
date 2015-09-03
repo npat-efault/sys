@@ -193,9 +193,13 @@ const (
 	BPF_X                            = 0x8
 	BPF_XOR                          = 0xa0
 	BRKINT                           = 0x2
+	BS0                              = 0x0
+	BS1                              = 0x2000
+	BSDLY                            = 0x2000
 	CBAUD                            = 0x100f
 	CBAUDEX                          = 0x1000
 	CFLUSH                           = 0xf
+	CIBAUD                           = 0x100f0000
 	CLOCAL                           = 0x800
 	CLOCK_BOOTTIME                   = 0x7
 	CLOCK_BOOTTIME_ALARM             = 0x9
@@ -235,6 +239,11 @@ const (
 	CLONE_VFORK                      = 0x4000
 	CLONE_VM                         = 0x100
 	CMSPAR                           = 0x40000000
+	CR0                              = 0x0
+	CR1                              = 0x200
+	CR2                              = 0x400
+	CR3                              = 0x600
+	CRDLY                            = 0x600
 	CREAD                            = 0x80
 	CRTSCTS                          = 0x80000000
 	CS5                              = 0x0
@@ -370,6 +379,9 @@ const (
 	EXTPROC                          = 0x10000
 	FD_CLOEXEC                       = 0x1
 	FD_SETSIZE                       = 0x400
+	FF0                              = 0x0
+	FF1                              = 0x8000
+	FFDLY                            = 0x8000
 	FLUSHO                           = 0x1000
 	F_DUPFD                          = 0x0
 	F_DUPFD_CLOEXEC                  = 0x406
@@ -788,10 +800,13 @@ const (
 	NETLINK_UNUSED                   = 0x1
 	NETLINK_USERSOCK                 = 0x2
 	NETLINK_XFRM                     = 0x6
+	NL0                              = 0x0
+	NL1                              = 0x100
 	NLA_ALIGNTO                      = 0x4
 	NLA_F_NESTED                     = 0x8000
 	NLA_F_NET_BYTEORDER              = 0x4000
 	NLA_HDRLEN                       = 0x4
+	NLDLY                            = 0x100
 	NLMSG_ALIGNTO                    = 0x4
 	NLMSG_DONE                       = 0x3
 	NLMSG_ERROR                      = 0x2
@@ -816,6 +831,7 @@ const (
 	OCRNL                            = 0x8
 	OFDEL                            = 0x80
 	OFILL                            = 0x40
+	OLCUC                            = 0x2
 	ONLCR                            = 0x4
 	ONLRET                           = 0x20
 	ONOCR                            = 0x10
@@ -1349,6 +1365,11 @@ const (
 	S_IXGRP                          = 0x8
 	S_IXOTH                          = 0x1
 	S_IXUSR                          = 0x40
+	TAB0                             = 0x0
+	TAB1                             = 0x800
+	TAB2                             = 0x1000
+	TAB3                             = 0x1800
+	TABDLY                           = 0x1800
 	TCFLSH                           = 0x540b
 	TCGETS                           = 0x5401
 	TCGETS2                          = 0x802c542a
@@ -1525,6 +1546,8 @@ const (
 	WORDSIZE                         = 0x40
 	WSTOPPED                         = 0x2
 	WUNTRACED                        = 0x2
+	XCASE                            = 0x4
+	XTABS                            = 0x1800
 )
 
 // Errors
